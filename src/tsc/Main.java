@@ -3,16 +3,16 @@ package tsc;
 public class Main {
 
 	public static void main(String[] args) {
-		boolean speed_per_char = false, speed_per_word = false;
-		try{
-			speed_per_char = testSpeedPerCharacter();
-			speed_per_word = testSpeedPerWord();
-		} catch (Exception e){
-			System.out.println("Fatal error");
-		}
+		boolean speed_per_char = testSpeedPerCharacter();
+		boolean speed_per_word = testSpeedPerWord();
+
+//		System.out.println("Speed per char " + (speed_per_char ? "succeed":"failed"));
+//		System.out.println("Speed per word " + (speed_per_word ? "succeed":"failed"));
 		
-		System.out.println("Speed per char " + (speed_per_char ? "succed":"failed"));
-		System.out.println("Speed per word " + (speed_per_word ? "succed":"failed"));
+		TypingSpeedMeasurer tsm = new TypingSpeedMeasurer();
+
+		System.out.println("Typing speed calculator.");
+		tsm.performMeasure();
 		
 	}
 	
@@ -21,7 +21,7 @@ public class Main {
 	}
 	
 	static boolean testSpeedPerWord(){
-		return SpeedCalculator.caculateSpeedPerWord(100, "Ala ma kota.") == 100./3;
+		return SpeedCalculator.caculateSpeedPerWord(100, "Ala ma kota.") == (100.)/3;
 	}
 	
 	
